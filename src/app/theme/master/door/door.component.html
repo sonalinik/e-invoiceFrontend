@@ -1,0 +1,190 @@
+
+
+
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5>Door</h5>
+                <h6 style="float: right; font-size: 12px; color: black;" class="requiredlable">
+                    Fields marked with (<sub class="required"> * </sub>) are mandatory
+                </h6>
+            </div>
+            <div class="card">
+                <form appDoor [formGroup]="angForm">
+                    <div class="card-block">
+                        <div class="row" style="padding-bottom: 100px;">
+                            <div class="col-sm">
+                                <div class="col-sm-2">
+                                    <span style="font-size: 20px;color: #0f459b; cursor: pointer;"
+                                        (click)="modalLarge.show();viewImagePreview()" placement="right"
+                                        ngbTooltip="Show Image" class="fa fa-fw fa-eye field-icon"></span>
+                                </div>
+                                <app-modal-basic #modalLarge [dialogClass]="'modal-lg'">
+                                    <div class="app-modal-header">
+                                        <h4 class="modal-title"> Document </h4>
+                                        <button type="button" class="close basic-close" (click)="modalLarge.hide()">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="app-modal-body">
+                                        <div class="app-modal-body">
+                                            <perfect-scrollbar>
+                        
+                                                <embed [src]="urlMap" width="100%" height="50%" />
+                        
+                                            </perfect-scrollbar>
+                                        </div>
+                        
+                                    </div>
+                                </app-modal-basic>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2"> <label for="Select Door Type">Door Type<sub
+                                        class="required">*</sub></label></div>
+                            <div class="col-md-4">
+                                <div class="form-group form-primary form-static-label">
+                                    <span class="border-lable-flt">
+                                        <ng-select id="DOOR_TYPE" #doorTypes [(ngModel)]="door" bindValue="value"
+                                            bindLabel="label" formControlName="DOOR_TYPE" title="Compulsory Selection"
+                                            required placeholder="Select Door Type" (change)="getData($event)"
+                                            (focus)="onFocus(doorTypes)" [selectOnTab]='true'>
+                                            <ng-option *ngFor="let values of doortype" [value]="values"
+                                                [selectOnTab]='true'>
+                                                {{values.label}}</ng-option>
+                                        </ng-select>
+                                    </span>
+                                </div>
+                                <div class="form-group form-primary form-static-label"
+                                    *ngIf=" angForm.controls['DOOR_TYPE'].invalid &&(angForm.controls['DOOR_TYPE'].dirty || angForm.controls['DOOR_TYPE'].touched)"
+                                    class="alert alert-danger">
+                                    <div
+                                        *ngIf="angForm.controls['DOOR_TYPE'].errors?.required ||angForm.controls['DOOR_TYPE'].errors?.pattern">
+                                        This is required field
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2"> <label for="Select Reference Material">Reference Material<sub
+                                        class="required">*</sub></label></div>
+                            <div class="col-md-4">
+                                <div class="form-group input-group">
+                                    <span class="border-lable-flt">
+                                        <input type="text" name="REF_MATCODE" class="form-control"
+                                            placeholder="REF_MATCODE" style="text-align: right;" id="REF_MATCODE"
+                                            formControlName="REF_MATCODE"
+                                            (keypress)="($event.charCode >= 48 && $event.charCode < 58 || $event.charCode == 46 )">
+                                    </span>
+                                </div>
+                                <!-- <div class="form-group form-primary form-static-label">
+                                    <span class="border-lable-flt">
+                                        <ng-select id="REF_MATCODE" [(ngModel)]="reference" #refMaterial
+                                            formControlName="REF_MATCODE" bindValue="CODE" bindLabel="NAME"
+                                            title="Compulsory Selection" required (focus)="onFocus(refMaterial)"
+                                            [selectOnTab]='true' placeholder="Select Reference Material"
+                                            (change)="getValueData($event)">
+                                            <ng-option *ngFor="let values of referencematerial" [value]="values">
+                                                {{values.NAME}}</ng-option>
+                                        </ng-select>
+                                    </span>
+                                </div> -->
+                                <div class="form-group form-primary form-static-label"
+                                    *ngIf=" angForm.controls['REF_MATCODE'].invalid &&(angForm.controls['REF_MATCODE'].dirty || angForm.controls['REF_MATCODE'].touched)"
+                                    class="alert alert-danger">
+                                    <div
+                                        *ngIf="angForm.controls['REF_MATCODE'].errors?.required ||angForm.controls['REF_MATCODE'].errors?.pattern">
+                                        This is required field
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-1">
+                                <label for="Quantity">Quantity<sub class="required">* </sub></label>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group input-group">
+                                    <span class="border-lable-flt">
+                                        <input type="text" (keydown.Tab)="decimal($event)" name="QTY"
+                                            class="form-control" placeholder="Quantity" style="text-align: right;"
+                                            id="QTY" formControlName="QTY" (focusout)="decimal($event)"
+                                            (keydown.Tab)="decimal($event)"
+                                            (keypress)="($event.charCode >= 48 && $event.charCode < 58 || $event.charCode == 46 )">
+                                    </span>
+                                </div>
+                                <div class="form-group form-primary form-static-label"
+                                    *ngIf="angForm.controls['QTY'].invalid && (angForm.controls['QTY'].dirty || angForm.controls['QTY'].touched)"
+                                    class="alert alert-danger">
+                                    <div
+                                        *ngIf="angForm.controls['QTY'].errors?. maxlength || angForm.controls['QTY'].errors?. minlength || angForm.controls['QTY'].errors?.required">
+                                        This field is required
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <button type="button" class="btn btn-outline-primary btn-sm" *ngIf="addShowButton"
+                                    (click)="addField()">Add</button>&nbsp;
+                                <button class="btn btn-outline-primary btn-sm" *ngIf="UpdateShowButton"
+                                    (click)="updateField()">Update</button>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top: 20px;margin-bottom: 20px;">
+                            <div class="col-md-12">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered table-hover compact">
+
+                                        <thead>
+
+                                            <td
+                                                style="position: sticky;  left: 0;background-color: rgb(252, 252, 252) ;">
+                                                Action</td>
+                                            <td></td>
+                                            <td style="width: 100%;">Reference Material</td>
+                                            <td class="td_right" style="width: 20%;">Quantity</td>
+
+                                        </thead>
+                                        <tbody *ngIf="multiField?.length != 0">
+
+
+                                            <tr *ngFor="let data of multiField; let indexOfelement=index;">
+                                                <td
+                                                    style="position: sticky;  left: 0;background-color: rgb(252, 252, 252) ;">
+                                                    <span class="fa fa-fw fa-edit field-icon" id="editbutton"
+                                                        (click)="editField(indexOfelement)" placement="bottom"
+                                                        ngbTooltip="Edit"></span> &nbsp;
+                                                    <span class="fa fa-fw fa-trash-o" id="deletebutton"
+                                                        (click)="delField(indexOfelement)"
+                                                        (click)="delgrid1(indexOfelement)" placement="bottom"
+                                                        ngbTooltip="Delete"></span>
+
+                                                </td>
+                                                <td class="td_right">{{indexOfelement + 1}}</td>
+                                                <td>{{data.REF_MATCODE}}</td>
+                                                <td class="td_right">{{data.QTY}}</td>
+
+                                            </tr>
+                                        </tbody>
+                                        <tbody *ngIf="multiField?.length == 0">
+                                            <tr>
+                                                <td colspan="12" class="no-data-available" style="text-align: center;">
+                                                    No data!</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="footer" style="background-color: #cad1d6">
+        <div class="row">
+            <div class="col-md-12 text-center justify-content-md-center">
+                <app-button (buttonClick)="save()" (buttonClick1)="cancel()" (buttonClick2)="update()"
+                    (buttonClick3)="delete()"></app-button>
+            </div>
+        </div>
+    </div>

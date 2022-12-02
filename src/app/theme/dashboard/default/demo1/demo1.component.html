@@ -1,0 +1,174 @@
+<!-- <div class="row">
+
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5>Interest Category Master</h5>
+            </div>
+            <form class="form-material">
+                <div class="card-block">
+
+                    <div class="row">
+                        <div class="col-sm">
+                            <div class="form-group form-primary form-static-label">
+                                <input type="number" name="footer-email" class="form-control" value="{{ message }}" required="">
+                                <span class="form-bar"></span>
+                                <label class="float-label">Interest Category Code</label>
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <div class="form-group form-primary form-static-label">
+                                <input type="text" name="footer-email" class="form-control" value="{{ messages1 }}" required="">
+                                <span class="form-bar"></span>
+                                <label class="float-label">Description</label>
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <button class="btn btn-primary ripple light">Add</button>
+                            <button class="bbtn btn" type="button" (click)="updateData()" *ngIf="updateShow">Update</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm">
+                            <p class="text-danger">You clicked on: <strong>{{ message }}</strong></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+
+                            <div class="card-block">
+                                <div class="table-responsive">
+                                    <table datatable [dtOptions]="dtExportButtonOptions" class="table table-striped table-bordered table-hover">
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div> -->
+
+
+
+
+<!-- <div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5>Income & Expenditure And Balancesheet Code</h5>
+            </div>
+            <form class="form-material" [formGroup]="glForm" action="javascript:">
+                <div class="card-block">
+                    <div class="row">
+                        <div class="col-sm">
+                            <div class="form-group form-primary form-static-label">
+                                <input type="text" name="footer-email" class="form-control" required="" value="{{ message.StatementCode }}">
+                                <span class="form-bar"></span>
+                                <label class="float-label">Statement Code</label>
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <div class="form-group form-primary form-static-label">
+                                <input type="text" name="footer-email" class="form-control" required="" value="{{ message.StatementHead }}">
+                                <span class="form-bar"></span>
+                                <label class="float-label">Statement Head</label>
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <div class="form-group form-primary form-static-label">
+                                <ng-select [ngClass]="'ng-select'" [options]="simpleOption" [multiple]="true" placeholder="Statement Type">
+                                </ng-select>
+                                <label>{{message.StatementType}}</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm">
+                            <div class="form-group form-primary form-static-label">
+                                <input type="text" name="footer-email" class="form-control" required="" value="{{ message.AlternateCode }}">
+                                <span class="form-bar"></span>
+                                <label class="float-label">Alternate Code</label>
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <div class="border-checkbox-section">
+                                <div class="border-checkbox-group border-checkbox-group-primary">
+                                    <input class="border-checkbox" type="checkbox" id="checkbox1" disabled>
+                                    <label class="border-checkbox-label" for="checkbox1">Print Head In One Side</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <button class="btn btn-primary ripple light" *ngIf="showButton">Add</button>
+                            <button class="btn btn-primary ripple light" (click)="updateData()" *ngIf="updateShow">Update</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="table-responsive">
+                        <table datatable [dtOptions]="dtExportButtonOptions" class="table table-striped table-bordered table-hover" style="width: 100%;">
+                        </table>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div> -->
+
+
+<!-- Saving Account Master -->
+
+<!-- 
+<table datatable [dtOptions]="dtOptions" class="row-border hover">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>First name</th>
+        <th>Last name</th>
+      </tr>
+    </thead>
+    <tbody > -->
+<!-- *ngIf="persons?.length != 0" -->
+<!-- <tr *ngFor="let person of persons">
+        <td>{{ person.A_BALCODE }}</td>
+        <td>{{ person.A_ACHEAD }}</td>
+        <td>{{ person.A_ACTYPE }}</td>
+      </tr> -->
+<!-- </tbody>
+    <tbody *ngIf="persons?.length == 0">
+      <tr>
+        <td colspan="3" class="no-data-available">No data!</td>
+      </tr>
+    </tbody>
+  </table> -->
+
+<div class="row">
+
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5>Role Management System</h5>
+            </div>
+            <div class="card-block">
+                <div class="row">
+                    <div class="col-sm">
+
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-sm">
+                        <div class="form-group">
+                            <ngx-treeview [config]="config" [items]="items" (filterChange)="onFilterChange($event)" (selectedChange)="values = $event">
+                            </ngx-treeview>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

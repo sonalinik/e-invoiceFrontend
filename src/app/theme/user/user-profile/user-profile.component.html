@@ -1,0 +1,349 @@
+<div class="container">
+  <div class="row gutters">
+    <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
+      <div class="card h-100">
+        <div class="card-body">
+          <div class="account-settings" style="text-align: center;">
+            <div class="user-profile">
+              <div class="user-avatar">
+                <div class="row">
+                  <div class="col-sm">
+                    <img [src]="profilePath" alt="Maxwell Admin" class="img"
+                      onError="this.src='assets/images/user.png'">
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-sm">
+                  <h5 class="user-name">{{fullName}}</h5>
+                  <h6 class="user-email">{{Email}}</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+      <div class="card h-100">
+        <div class="card-body">
+          <form [formGroup]="angEditForm" novalidate>
+            <div class="row gutters">
+              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                <h6 class="mb-2 text-primary">Personal Details</h6>
+              </div>
+              <!-- <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
+                <div class="form-group">
+                  <label for="firstName">First Name</label>
+                  <input type="text" class="form-control" id="firstName" placeholder="Enter first name" formControlName="firstName">
+                </div>
+              </div> -->
+              <!-- <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
+                <div class="form-group">
+                  <label for="lastName">Middle Name</label>
+                  <input type="text" class="form-control" id="middleName" placeholder="Enter middle name" formControlName="middleName">
+                </div>
+              </div> -->
+              <!-- <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
+                <div class="form-group">
+                  <label for="lastName">Last Name</label>
+                  <input type="text" class="form-control" id="lastName" placeholder="Enter last name" formControlName="LastName">
+                </div>
+              </div>
+              <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
+                <div class="form-group">
+                  <label for="eMail">Email</label>
+                  <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.com$" class="form-control" id="eMail" placeholder="Enter email ID" formControlName="email">
+                  <div class="form-group form-primary form-static-label"
+                      *ngIf="angEditForm.controls['email'].invalid && (angEditForm.controls['email'].dirty || angEditForm.controls['email'].touched)"
+                      class="alert alert-danger">
+                      <div
+                          *ngIf="angEditForm.controls['email'].errors?.pattern || angEditForm.controls['email'].errors?.maxlength || angEditForm.controls['email'].errors?.minlength">
+                          Enter valid Email
+                      </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
+                <div class="form-group">
+                  <label for="phone">Phone</label>
+                  <input type="text"  pattern="[7-9 0]{1}[0-9]{9}"  maxlength="11" minlength="10" class="form-control" id="phone" placeholder="Enter phone number" formControlName="phone">
+                  <div class="form-group form-primary form-static-label"
+                      *ngIf="angEditForm.controls['phone'].invalid && (angEditForm.controls['phone'].dirty || angEditForm.controls['phone'].touched)"
+                      class="alert alert-danger">
+                      <div
+                          *ngIf="angEditForm.controls['phone'].errors?.pattern || angEditForm.controls['phone'].errors?.maxlength || angEditForm.controls['phone'].errors?.minlength">
+                          Input allowed only 0-9 and It starts by either for 7 or 8 or 9,
+                      </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
+                <div class="form-group">
+                  <label for="imageProfile">Profile</label>
+                  <input type="file" class="form-control" id="imageProfile" (change)="selectedImage($event)">
+                </div>
+              </div>
+              <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12" *ngIf="showImage">
+                  <label for="image">Image</label>
+                  <img [src]="selectedImagePreview" class="form-control" style="width: 200px;height: 250px;">
+              </div> -->
+            </div>
+            <div class="row">
+              <div class="col-sm-2">
+                <label for="F_NAME">First Name<sub class="required">* </sub></label>
+              </div>
+
+              <div class="col-md-4">
+                <div class="form-group input-group">
+                  <span class="border-lable-flt">
+                    <input type="text" name="F_NAME" class="form-control" placeholder=" " id="F_NAME" required
+                      pattern="^[A-Za-z]+$" maxlength="15" title="Input allowed only A-Z" formControlName="firstName">
+                  </span>
+                </div>
+
+              </div>
+              <div class="col-sm-2">
+                <label for="L_NAME">Last Name<sub class="required">* </sub></label>
+              </div>
+
+              <div class="col-md-4">
+                <div class="form-group input-group">
+                  <span class="border-lable-flt">
+                    <input type="text" name="L_NAME" class="form-control" placeholder=" " id="L_NAME" required
+                      pattern="^[A-Za-z]+$" maxlength="15" #lastname title="Input allowed only A-Z"
+                      formControlName="LastName">
+                  </span>
+                </div>
+
+              </div>
+
+            </div>
+
+            <!-- <div class="row">
+              <div class="col-sm">
+                <div class="form-group input-group">
+                  <span class="border-lable-flt">
+                    <input type="text" name="F_NAME" class="form-control" placeholder=" " id="F_NAME" required
+                      pattern="^[A-Za-z]+$" maxlength="15" title="Input allowed only A-Z" formControlName="firstName">
+                    <label for="F_NAME">First Name<sub class="required">* </sub></label>
+                  </span>
+                </div>
+               
+              </div>
+              <div class="col-sm">
+                <div class="form-group input-group">
+                  <span class="border-lable-flt">
+                    <input type="text" name="L_NAME" class="form-control" placeholder=" " id="L_NAME" required
+                      pattern="^[A-Za-z]+$" maxlength="15" #lastname title="Input allowed only A-Z"
+                      formControlName="LastName">
+                    <label for="L_NAME">Last Name<sub class="required">* </sub></label>
+
+                  </span>
+                </div>
+               
+              </div>
+              <div class="col-sm">
+                <div class="form-group input-group">
+                  <span class="border-lable-flt">
+                    <input type="email" name="AC_EMAILID" class="form-control" placeholder=" "
+                      pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.com$" title="Enter valid Email" id="AC_EMAILID"
+                      formControlName="email">
+                    <label for="AC_EMAILID">Email</label>
+                  </span>
+                </div>
+              
+              </div>
+
+            </div> -->
+            <div class="row">
+
+              <div class="col-sm-2">
+                <label for="AC_EMAILID">Email</label>
+              </div>
+
+              <div class="col-md-4">
+                <div class="form-group input-group">
+                  <span class="border-lable-flt">
+                    <input type="email" name="AC_EMAILID" class="form-control" placeholder=" "
+                      pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.com$" title="Enter valid Email" id="AC_EMAILID"
+                      formControlName="email">
+
+                  </span>
+                </div>
+
+              </div>
+
+              <div class="col-sm-2">
+                <label for="AC_MOBILENO">Mobile Number</label>
+              </div>
+
+              <div class="col-md-4">
+                <div class="form-group input-group">
+                  <span class="border-lable-flt">
+                    <input type="text" name="AC_MOBILENO" class="form-control" placeholder=" "
+                      pattern="[7-9 0]{1}[0-9]{9,10}" title="Input allowed only  0-9" id="AC_MOBILENO" maxlength="11"
+                      minlength="10" formControlName="phone">
+
+                  </span>
+                </div>
+
+              </div>
+
+              <!-- <div class="col-sm">
+                  <div class="form-group input-group">
+                      <span class="border-lable-flt">
+                          <input type="file" name="Profile" class="form-control" placeholder=" "
+                              id="Profile" formControlName="Profile" (change)="selectedImage($event)">
+                          <label for="Profile">Profile</label>
+                      </span>
+                  </div>
+                  <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12" *ngIf="showImage">
+                      <label for="image">Image</label>
+                      <img [src]="selectedImagePreview" class="form-control"
+                          style="width: 200px;height: 250px;">
+                  </div>
+
+              </div> -->
+            </div>
+            <div class="row">
+              <div class="col-sm-2">
+                <label for="Profile">Profile</label>
+              </div>
+              <div class="col-md-4">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" type="file">
+                      <i class="fa fa-upload" aria-hidden="true"></i>
+                    </span>
+                  </div>
+                  <input type="file" name="Profile" class="form-control" placeholder=" " id="Profile"
+                  formControlName="Profile" (change)="selectedImage($event)">
+                </div>
+
+              </div>
+              <div class="col-sm-2">
+                <label for="image">Image</label>
+              </div>
+              <!-- <div class="col-md-4"> -->
+              <div class="col-sm-2" *ngIf="showImage">
+                <img [src]="selectedImagePreview" class="form-control" style="width: 200px;height: 140px;">
+              </div>
+              <!-- </div> -->
+
+            </div>
+            <!-- <div class="row">
+              <div class="col-sm">
+                <div class="form-group input-group">
+                  <span class="border-lable-flt">
+                    <input type="text" name="AC_MOBILENO" class="form-control" placeholder=" "
+                      pattern="[7-9 0]{1}[0-9]{9,10}" title="Input allowed only  0-9" id="AC_MOBILENO" maxlength="11"
+                      minlength="10" formControlName="phone">
+                    <label for="AC_MOBILENO">Mobile Number</label>
+                  </span>
+                </div>
+
+              </div>
+              <div class="col-sm">
+                <div class="form-group input-group">
+                  <span class="border-lable-flt">
+                    <input type="file" name="Profile" class="form-control" placeholder=" " id="Profile"
+                      formControlName="Profile" (change)="selectedImage($event)">
+                    <label for="Profile">Profile</label>
+                  </span>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12" *ngIf="showImage">
+                  <label for="image">Image</label>
+                  <img [src]="selectedImagePreview" class="form-control" style="width: 200px;height: 250px;">
+                </div>
+
+              </div>
+              <div class="col-sm">
+                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12" *ngIf="showImage">
+                  <label for="image">Image</label>
+                  <img [src]="selectedImagePreview" class="form-control" style="width: 200px;height: 250px;">
+                </div>
+              </div>
+            </div> -->
+
+
+
+            <div class="row gutters">
+              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                <h6 class="mt-3 mb-2 text-primary">Login Details</h6>
+              </div>
+
+            </div>
+            <div class="row">
+              <div class="col-sm-3">
+                <label for="currentPassword">Current Password</label>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group input-group">
+                  <span class="border-lable-flt">
+                    <input type="password" name="currentPassword" class="form-control" placeholder=" "
+                      id="currentPassword" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$"
+                      [NgPasswordValidator]="options" (valid)="isValid($event)" (keyup)="onInput($event)"
+                      formControlName="currentPassword">
+
+                  </span>
+                </div>
+
+              </div>
+              <div class="col-sm-3">
+                <label for="Create_Password"> New Password<sub class="required">* </sub></label>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group input-group">
+                  <span class="border-lable-flt">
+                    <input type="password" name="Create_Password"
+                      pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$" minlength="4"
+                      class="form-control" [NgPasswordValidator]="options" (valid)="isValid($event)"
+                      (keyup)="onInput($event)" placeholder=" " id="Create_Password" formControlName="newPassword"
+                      required>
+
+                  </span>
+                </div>
+
+              </div>
+
+            </div>
+            <div class="row">
+              <div class="col-sm-3">
+                <label for="confirmPassword">Confirm Password</label>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group input-group">
+                  <span class="border-lable-flt">
+                    <input type="password" name="confirmPassword" class="form-control" placeholder=" "
+                      id="confirmPassword" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$"
+                      [NgPasswordValidator]="options" (valid)="isValid($event)" (keyup)="onInput($event)"
+                      formControlName="confirmPassword">
+
+                  </span>
+                </div>
+
+              </div>
+              <div class="col-sm">
+                <div class="text-right">
+                  <span style="margin-right: 5px;">
+                    <!-- [routerLink]="['/dashboard']" -->
+                    <!-- <a   class="btn btn-outline-primary btn-sm">
+                      Cancel
+                    </a> -->
+                    <button type="button" id="submit" (click)="cancel()" name="submit"
+                      class="btn btn-outline-primary btn-sm">Cancel</button>
+                    <button type="button" id="submit" (click)="updateProfile()" name="submit"
+                      class="btn btn-outline-primary btn-sm">Update</button>
+                  </span>
+                
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,50 @@
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5>Filler</h5>
+                <h6 style="float: right; font-size: 12px; color: black;" class="requiredlable">
+                    Fields marked with (<sub class="required"> * </sub>) are mandatory
+                </h6>
+            </div>
+            <div class="card">
+                <form [formGroup]="angForm">
+                    <div class="card-block">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <label for="label-name">Filler type<sub class="required">* </sub></label>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="form-group input-group">
+                                    <span class="border-lable-flt">
+                                        <input type="text" name="NAME" maxlength={{len}} class="form-control" autofocus
+                                            placeholder=" " id="NAME" formControlName="NAME">
+                                    </span>
+                                </div>
+                                <div class="form-group form-primary form-static-label"
+                                    *ngIf="angForm.controls['NAME'].invalid && (angForm.controls['NAME'].dirty || angForm.controls['NAME'].touched)"
+                                    class="alert alert-danger">
+                                    <div
+                                        *ngIf="angForm.controls['NAME'].errors?. maxlength || angForm.controls['NAME'].errors?. minlength || angForm.controls['NAME'].errors?.required">
+                                        This field is required
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="footer" style="background-color:  #e6f3f3">
+    <div class="row">
+        <div class="col-md-12 text-center justify-content-md-center">
+            <app-button (buttonClick)="save()" (buttonClick1)="cancel()" (buttonClick2)="update()"
+                (buttonClick3)="delete()"></app-button>
+        </div>
+    </div>
+</div>

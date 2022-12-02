@@ -1,0 +1,19 @@
+.not-active {
+    pointer-events: none;
+    cursor: default;
+}
+
+/* .breadcrumb-item + .breadcrumb-item::before {
+    display: inline-block;
+    padding-right: 0.2rem;
+    color: white !important;
+    content: "/";
+    padding-top: 0.2rem;
+} */
+.breadcrumb-item + .breadcrumb-item::before {
+    display: inline-block;
+    padding-right: 0.2rem;
+    color: black !important;
+    content: "/";
+    padding-top: 0.2rem;
+}
